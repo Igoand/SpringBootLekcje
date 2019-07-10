@@ -2,6 +2,7 @@ package api.data.course.data.course;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import api.data.course.data.Topic;
 
@@ -12,6 +13,8 @@ public class Course {
 	private String id;
 	private String name;
 	private String description;
+
+	@ManyToOne
 	private Topic topic;
 
 	public Course() {

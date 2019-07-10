@@ -1,7 +1,5 @@
 package api.data.course.data;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,7 +19,7 @@ public class TopicControler {
 	}
 
 	@RequestMapping("/topics/{id}")
-	public Optional<Topic> getTopic(@PathVariable String id) {
+	public Topic getTopic(@PathVariable String id) {
 		return topicService.getTopic(id);
 	}
 

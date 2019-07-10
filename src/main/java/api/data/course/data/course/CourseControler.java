@@ -1,6 +1,6 @@
 package api.data.course.data.course;
 
-import java.util.Optional;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,17 +17,17 @@ public class CourseControler {
 	@Autowired
 	private CourseService courseService;
 
-	@RequestMapping("/topics/{id}/course")
+	@RequestMapping("/topics/{id}/courses")
 	public java.util.List<Course> getAllCourses(String id) {
 		return courseService.getAllCourses(id);
 	}
 
-	@RequestMapping("/topics/{topicId}/courses/{id")
-	public Optional<Course> getCourse(@PathVariable String id) {
+	@RequestMapping("/topics/{topicId}/courses/{id}")
+	public List<Course> getCourse(@PathVariable String id) {
 		return courseService.getCourses(id);
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value = "/topics/{topicsId}/courses")
+	@RequestMapping(method = RequestMethod.POST, value = "/topics/{topicId}/courses")
 	public void addCourse(@RequestBody Course course, @PathVariable String topicId) {
 		course.setTopic(new Topic(topicId, "", ""));
 		courseService.addCourse(course);
